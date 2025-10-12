@@ -6,6 +6,10 @@ const texts = {
     login:{
         pl:'zaloguj się',
         en:'Sign in'
+    },
+    searchPlaceholder:{
+        pl:'Wyszukaj aktywo...',
+        en:'Search asset...'
     }
 }
 

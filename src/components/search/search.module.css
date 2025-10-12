@@ -1,7 +1,49 @@
 .search
 {
-    background-color: red;
     width: 40%;
-    /* width: 10rem; */
-    height: 1rem;
+    position: relative;
+    cursor: pointer;
+}
+.searchInput
+{
+    width: 100%;
+    height: 100%;
+    font-size: 1.5rem;
+    text-align: center;
+    outline: none;
+    padding: .5rem .5rem .8rem .5rem;
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+.searchInput:focus
+{
+    cursor: text;
+}
+.bottomBorder
+{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: .3rem;
+    background-color: #404040;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+.bottomBorderFilled
+{
+    transform: scaleX(0);
+    width: 100%;
+    border-radius: 10px;
+    height: 100%;
+    background-color: #00BFA6;
+    transition: transform .3s ease;
+}
+.bottomBorderFilledDisplay
+{
+    transform: scaleX(1);
 }
