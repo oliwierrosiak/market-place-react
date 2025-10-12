@@ -1,5 +1,56 @@
 .topBar
 {
     width: 100%;
-    
+    background-color: #000000;
+    position: fixed;
+    top:0;
+    left:0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+}
+.langAndCurrency
+{
+    display: flex;
+    align-items: center;
+    gap:1rem;
+}
+.listContainer
+{
+    background-color: #404040;
+    position: relative;
+    height: 2rem;
+    width: 4rem;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+.list
+{
+    top:2.2rem;
+    position: absolute;
+    background-color: #404040;
+    list-style-type: none;
+    display: none;
+    flex-direction: column;
+    width: 4rem;
+    border-radius: .5rem;
+    overflow: hidden;
+}
+.listItem
+{
+    text-align: center;
+    padding: .2rem 0;
+    cursor: pointer;
+}
+.listItem:hover
+{
+    background: #808080;
+}
+.currencyListDisplay
+{
+    display: flex;
 }
