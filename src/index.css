@@ -3,13 +3,23 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: white;
+  color: #E6EAF0;
 }
 html
 {
-  font-size: 1rem;
+  font-size: 1vw;
 }
 body
 {
-  background: #000000;
+  background-color: #0E1116;
 }
+/* html
+{
+  background-color: #0E1116;
+  background-color: #00BFA6;
+  background-color: #2E8BFF;
+  background-color: #E6EAF0;
+  background-color: #FF4D4D;
+  background-color: #4DFF88;
+
+} */

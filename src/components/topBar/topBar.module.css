@@ -8,12 +8,31 @@
     right: 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: .5rem 1rem;
+    gap:1rem;
+}
+.logo
+{
+    width:12rem;
 }
 .langAndCurrency
 {
     display: flex;
     align-items: center;
     gap:1rem;
+}
+.item
+{
+    display: flex;
+    gap:.4rem;
+    align-items: center;
+    justify-content: center;
+}
+.iconSVG
+{
+    width: 1.4rem;
+    height: 1.4rem;
 }
 .listContainer
 {
@@ -27,6 +46,10 @@
     align-items: center;
     border-radius: .5rem;
     cursor: pointer;
+}
+.listContainer:hover
+{
+    background-color: #00BFA6;
 }
 .list
 {
@@ -53,4 +76,47 @@
 .currencyListDisplay
 {
     display: flex;
+}
+.loginContainer
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:.6rem;
+}
+.button
+{
+    padding: .5rem .8rem;
+    background: none;
+    border-radius: .8rem;
+    outline: none;
+    font-size: 1.3rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .3s ease;
+}
+.line
+{
+    width: .25rem;
+    height: 3rem;
+    background-color: #00BFA6;
+    border-radius: 10px;
+}
+.register
+{
+    background: none;
+    border:.3rem solid #00BFA6;
+}
+.register:hover
+{
+    background: #00BFA6;
+}
+.login
+{
+    background: #008b79;
+    border:.3rem solid #00BFA6;
+}
+.login:hover
+{
+    background: #00BFA6;
 }
