@@ -9,8 +9,8 @@ function TopBar(props)
     const currency = useContext(CurrencyContext)
     const lang = useContext(LangContext)
 
-    const currencyToChoose = ['PLN','USD','EUR']
-    const langToChoose = ["PL","EN"]
+    const currencyToChoose = ['EUR','PLN','USD']
+    const langToChoose = ["EN","PL"]
 
 
 
@@ -18,7 +18,6 @@ function TopBar(props)
     {
         if(e.target.classList.contains(styles.listContainer))
         {
-
             props.currencyListRef.current.classList.remove(styles.currencyListDisplay)
             props.langListRef.current.classList.remove(styles.currencyListDisplay)
             e.target.children[0].classList.add(styles.currencyListDisplay)
@@ -29,12 +28,14 @@ function TopBar(props)
     {
         if(action === 'currency')
         {
+            localStorage.setItem('currency',arg)
             currency.setCurrency(arg)
             e.target.closest('div').children[0].classList.remove(styles.currencyListDisplay)
 
         }
         else if(action === 'lang')
         {
+            localStorage.setItem('lang',arg)
             lang.setLang(arg)
             e.target.closest('div').children[0].classList.remove(styles.currencyListDisplay)
         }

@@ -6,11 +6,13 @@ import TopBar from './components/topBar/topBar'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CurrencyContext from './components/context/currencyContext';
 import topBarStyles from './components/topBar/topBar.module.css'
+import getCurrencyState from './components/helpers/getCurrencyState';
+import getLangState from './components/helpers/getLangState';
 
 function App() {
 
-  const [lang,setLang] = useState('en')
-  const [currency,setCurrency] = useState('USD')
+  const [lang,setLang] = useState(getLangState())
+  const [currency,setCurrency] = useState(getCurrencyState())
 
   const currencyListRef = useRef()
   const langListRef = useRef()
@@ -31,6 +33,13 @@ function App() {
       body.removeEventListener('click',bodyClicked)
     }
   },[])
+
+  useEffect(()=>{
+    if(lang)
+    {
+      document.querySelector('html').lang = lang.toLowerCase()
+    }
+  },[lang])
 
   return (
   <>
