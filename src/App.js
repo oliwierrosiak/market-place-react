@@ -9,6 +9,7 @@ import topBarStyles from './components/topBar/topBar.module.css'
 import getCurrencyState from './components/helpers/getCurrencyState';
 import getLangState from './components/helpers/getLangState';
 import Home from './components/home/home';
+import Crypto from './components/crypto/crypto';
 
 function App() {
 
@@ -52,7 +53,7 @@ function App() {
           <Route path='/' element={<Home />}/>
           <Route path='/stock' element={<></>}/>
           <Route path='/etf' element={<></>}/>
-          <Route path='/crypto' element={<></>}/>
+          <Route path='/crypto' element={<Crypto />}/>
           <Route path='/metals' element={<></>}/>
           <Route path='/currencies' element={<></>}/>
         </Routes>
