@@ -1,7 +1,7 @@
 function getLangState()
 {
     const lang = localStorage.getItem('lang')
-    return lang || 'EN'
+    return lang || (navigator.language.includes('pl')?'PL':"EN")
 }
 
 export default getLangState

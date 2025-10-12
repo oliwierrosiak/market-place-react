@@ -1,5 +1,7 @@
 .search
 {
     background-color: red;
-    width: 48%;
+    width: 40%;
+    /* width: 10rem; */
+    height: 1rem;
 }

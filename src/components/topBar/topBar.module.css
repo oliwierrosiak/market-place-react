@@ -98,13 +98,14 @@
 .line
 {
     width: .25rem;
-    height: 3rem;
+    height: 2.5rem;
     background-color: #00BFA6;
     border-radius: 10px;
 }
 .register
 {
     background: none;
+    margin-left: 1rem;
     border:.3rem solid #00BFA6;
 }
 .register:hover

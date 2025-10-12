@@ -3,7 +3,9 @@ import styles from './search.module.css'
 function Search()
 {
     return(
-        <div className={styles.search}></div>
+        <div className={styles.search}>
+            
+        </div>
     )
 }
 
