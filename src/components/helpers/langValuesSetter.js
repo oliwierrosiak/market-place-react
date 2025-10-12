@@ -10,6 +10,14 @@ const texts = {
     searchPlaceholder:{
         pl:'Wyszukaj aktywo...',
         en:'Search asset...'
+    },
+    homeHeader:{
+        pl:"Śledź, sprawdzaj ceny i bądź na bieżąco ze swoimi aktywami",
+        en:'Track, check prices and stay up to date with your assets'
+    },
+    nav:{
+        pl:['Akcje','ETF','Kryptowaluty','Metale','Waluty'],
+        en:['Stock','ETF','Crypto','Metals','Currencies']
     }
 }
 

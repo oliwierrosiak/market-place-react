@@ -8,6 +8,7 @@ import CurrencyContext from './components/context/currencyContext';
 import topBarStyles from './components/topBar/topBar.module.css'
 import getCurrencyState from './components/helpers/getCurrencyState';
 import getLangState from './components/helpers/getLangState';
+import Home from './components/home/home';
 
 function App() {
 
@@ -46,17 +47,14 @@ function App() {
     <LangContext.Provider value={{lang,setLang}}>
     <CurrencyContext.Provider value={{currency,setCurrency}}>
       <TopBar currencyListRef={currencyListRef} langListRef={langListRef}/>
-
-      <Nav />
-
       <Router>  
         <Routes>
-          <Route path='/' element={<></>}/>
-          <Route path='/actions' element={<></>}/>
+          <Route path='/' element={<Home />}/>
+          <Route path='/stock' element={<></>}/>
           <Route path='/etf' element={<></>}/>
           <Route path='/crypto' element={<></>}/>
           <Route path='/metals' element={<></>}/>
-          <Route path='/currency' element={<></>}/>
+          <Route path='/currencies' element={<></>}/>
         </Routes>
       </Router>
     </CurrencyContext.Provider>
