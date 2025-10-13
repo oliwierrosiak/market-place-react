@@ -7,23 +7,26 @@ import logo from '../../assets/img/voxalogo1.png'
 import LangIcon from '../../assets/svg/lang'
 import CurrencyIcon from '../../assets/svg/currency'
 import langValuesSetter from '../helpers/langValuesSetter'
+import TopBarContext from '../context/topBarContext'
+import { useNavigate } from 'react-router-dom'
 
 function TopBar(props)
 {
     const currency = useContext(CurrencyContext)
     const lang = useContext(LangContext)
+    const topBarContext = useContext(TopBarContext)
 
     const currencyToChoose = ['EUR','PLN','USD']
     const langToChoose = ["EN","PL"]
 
-
+    const navigate = useNavigate()
 
     const listContainerClicked = (e) =>
     {
         if(e.target.classList.contains(styles.listContainer))
         {
-            props.currencyListRef.current.classList.remove(styles.currencyListDisplay)
-            props.langListRef.current.classList.remove(styles.currencyListDisplay)
+            topBarContext.currencyListRef.current.classList.remove(styles.currencyListDisplay)
+            topBarContext.langListRef.current.classList.remove(styles.currencyListDisplay)
             e.target.children[0].classList.add(styles.currencyListDisplay)
         }
     }
@@ -47,7 +50,7 @@ function TopBar(props)
 
     return(
         <div className={styles.topBar}>
-            <img src={logo} className={styles.logo} />
+            <img src={logo} className={styles.logo} onClick={e=>navigate('/')}/>
             <Search />
 
         <div className={styles.loginContainer}>
@@ -57,7 +60,7 @@ function TopBar(props)
                         <CurrencyIcon class={styles.iconSVG} />
                         <div className={`${styles.listContainer} listContainer`} onClick={listContainerClicked} >
                             {currency.currency}
-                            <ul className={styles.list} ref={props.currencyListRef}>
+                            <ul className={styles.list} ref={topBarContext.currencyListRef}>
                                 {currencyToChoose.map(x=><li className={styles.listItem} onClick={e=>listClicked(e,x,'currency')}>{x}</li>)}
                             </ul>
                         </div>
@@ -69,7 +72,7 @@ function TopBar(props)
 
                         <div className={`${styles.listContainer} listContainer`} onClick={listContainerClicked} >
                             {lang.lang}
-                            <ul className={styles.list} ref={props.langListRef}>
+                            <ul className={styles.list} ref={topBarContext.langListRef}>
                                 {langToChoose.map(x=><li className={styles.listItem} onClick={e=>listClicked(e,x,'lang')}>{x}</li>)}
                             </ul>
                         </div>

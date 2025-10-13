@@ -2,13 +2,14 @@ import { useContext, useEffect, useRef } from 'react'
 import langValuesSetter from '../helpers/langValuesSetter'
 import styles from './home.module.css'
 import LangContext from '../context/langContext'
-import bg from '../../assets/img/graph-8898188_1280.jpg'
+import bg from '../../assets/img/homeBG.webp'
 import CryptoIcon from '../../assets/svg/crypto'
 import StockIcon from '../../assets/svg/stock'
 import CurrencyNavIcon from '../../assets/svg/currencyNav'
 import GoldIcon from '../../assets/svg/gold'
 import ETFIcon from '../../assets/svg/etfIcon'
 import { useNavigate } from 'react-router-dom'
+import TopBar from '../topBar/topBar'
 
 function Home()
 {
@@ -25,6 +26,7 @@ function Home()
 
     return(
         <>
+        <TopBar />
         <header className={styles.header}>
             <img src={bg} className={styles.background}/>
             <h1 className={styles.h1}>{langValuesSetter('homeHeader',lang.lang)}</h1>

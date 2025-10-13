@@ -8,7 +8,7 @@
     gap:2rem;
     padding: 8rem 4rem 8rem 4rem;
     position: relative;
-    height: 33rem;
+    height: 35rem;
     overflow: hidden;
 }
 .bg
@@ -20,24 +20,34 @@
     width: 100%;
     translate: 0 -50%;
     z-index: 1;
-    filter: blur(3px) contrast(1.1) brightness(0.7);
+    filter: blur(3px) contrast(0.8) brightness(0.2);
+    transition: filter 1.5s ease;
+}
+.bgDisplay
+{
+    filter: blur(3px) contrast(1.1) brightness(0.6);
 }
 .header>h1
 {
-    width: 100%;
     text-align: center;
     font-size: 5rem;
     z-index: 3;
-    text-shadow: 0 0 1rem #0E1116;
+    color: white;
+    box-shadow: 0 0 1rem 1.5rem #0e111636;
+    background-color: #0e111636;
+    border-radius: 2rem;
+    padding: 0 2rem;
 }
 .header>p
 {
-    width: 100%;
     text-align: center;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     z-index: 3;
     padding: 0 5rem;
-    text-shadow: 0 0 1rem #0E1116;
+    color: rgb(193, 193, 193);
+    box-shadow: 0 0 1rem 1.5rem #0e111674;
+    background-color: #0e111674;
+    border-radius: 2rem;
 }
 .shadow
 {

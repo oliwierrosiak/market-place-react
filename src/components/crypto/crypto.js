@@ -9,6 +9,7 @@ import LangContext from '../context/langContext'
 
 import PageHeader from '../pageHeader/pageHeader'
 import Nav from '../nav/nav'
+import TopBar from '../topBar/topBar'
 
 function Crypto()
 {
@@ -37,6 +38,7 @@ function Crypto()
 
     return(
         <>
+            <TopBar/>
             <PageHeader page="crypto" />
             <Nav />
         </>

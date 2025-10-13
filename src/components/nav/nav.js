@@ -31,7 +31,7 @@ function Nav()
         <nav className={styles.nav}>
             <ul className={styles.ul}>
                 {langValuesSetter('nav',lang.lang).map((x,idx)=>{
-                    return <li className={currentPage === idx?styles.currentPage:''} onClick={e=>navigation(`/${links.current[idx].toLowerCase()}`)}>
+                    return <li className={`${styles.li} ${currentPage === idx?styles.currentPage:''}`} onClick={e=>navigation(`/${links.current[idx].toLowerCase()}`)}>
                         {idx===0?<StockIcon class={styles.navIcon}/>:(idx===1?<ETFIcon class={styles.navIcon}/>:(idx===2?<CryptoIcon class={styles.navIcon}/>:(idx===3?<GoldIcon class={styles.navIcon}/>:<CurrencyNavIcon class={styles.navIcon}/>)))}
                         {x}
                     </li>

@@ -1,7 +1,7 @@
 function CryptoIcon(props)
 {
     return(
-        <svg className={props.class} viewBox="0 0 140 141.347">
+        <svg className={props.class} viewBox="0 0 140 141.347" style={{"marginBottom":'.1rem',"marginRight":'.1rem'}}>
   <g>
     <ellipse cx="70" cy="70.673" rx="68" ry="68.673" fill="none" stroke="#ffffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
     <ellipse cx="70" cy="70.673" rx="54.561" ry="55.102" fill="none" stroke="#ffffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>

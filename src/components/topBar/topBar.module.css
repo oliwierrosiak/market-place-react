@@ -17,6 +17,13 @@
 .logo
 {
     width:8rem;
+    cursor: pointer;
+    opacity: 0.85;
+    transition: opacity .3s ease;
+}
+.logo:hover
+{
+    opacity: 1;
 }
 .langAndCurrency
 {

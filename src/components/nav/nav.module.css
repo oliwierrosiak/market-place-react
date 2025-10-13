@@ -10,15 +10,14 @@
     align-items: center;
     padding: 0 8rem;
 }
-.ul>li::selection
+.li::selection
 {
     background: none;
 }
-.ul>li
+.li
 {
     font-size: 1.5rem;
     width: 100%;
-    background: none;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,10 +27,11 @@
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
     cursor: pointer;
+    transition: background .3s ease;
 }
-.ul>li:hover
+.li:hover
 {
-    background-color: #303030;
+    background: #303030;
 }
 .navIcon
 {
@@ -40,5 +40,5 @@
 }
 .currentPage
 {
-    background-color: #404040 !important;
+    background: #404040 !important;
 }
