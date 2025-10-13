@@ -14,21 +14,26 @@ import TopBar from '../topBar/topBar'
 function Home()
 {
     const lang = useContext(LangContext)
-
+    
     const navigation = useNavigate()
-
+    
     const links = useRef([])
+    const bgRef = useRef()
 
     useEffect(()=>{
+        bgRef.current?.classList.add(styles.bgDisplay)
         const localLinks = [...langValuesSetter('nav','en')]
         links.current = localLinks.map(x=>x.toLowerCase())
+        return()=>{
+            bgRef.current?.classList.remove(styles.bgDisplay)
+        }
     },[])
 
     return(
         <>
         <TopBar />
         <header className={styles.header}>
-            <img src={bg} className={styles.background}/>
+            <img src={bg} className={styles.background} ref={bgRef}/>
             <h1 className={styles.h1}>{langValuesSetter('homeHeader',lang.lang)}</h1>
             <div className={styles.bottomShadow}></div>
         <nav className={styles.nav}>

@@ -15,6 +15,12 @@
     border: 0;
     background: none;
     cursor: pointer;
+    font-weight: 700;
+}
+.searchInput::placeholder
+{
+    font-family: "BBH Sans Hegarty", sans-serif;
+    font-weight: 400;
 }
 .searchInput:focus
 {

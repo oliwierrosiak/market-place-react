@@ -55,6 +55,8 @@
     align-items: center;
     border-radius: .5rem;
     cursor: pointer;
+    font-family: "Merriweather Sans", sans-serif;
+    font-weight: 700;
 }
 .listContainer:hover
 {
@@ -103,6 +105,8 @@
     font-weight: 700;
     cursor: pointer;
     transition: background .3s ease;
+    font-family: "DynaPuff", system-ui;
+    font-weight: 500;
 }
 .line
 {

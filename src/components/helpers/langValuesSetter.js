@@ -4,7 +4,7 @@ const texts = {
         en:'Sign up'
     },
     login:{
-        pl:'zaloguj się',
+        pl:'Zaloguj się',
         en:'Sign in'
     },
     searchPlaceholder:{

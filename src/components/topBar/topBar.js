@@ -81,9 +81,9 @@ function TopBar(props)
                 </div>
 
 
-                <button className={`${styles.button} ${styles.register}`}>{langValuesSetter('register',lang.lang)}</button>
+                <button className={`${styles.button} ${styles.register}`} onClick={e=>navigate('/register')}>{langValuesSetter('register',lang.lang)}</button>
                 <div className={styles.line}></div>
-                <button className={`${styles.button} ${styles.login}`}>{langValuesSetter('login',lang.lang)}</button>
+                <button className={`${styles.button} ${styles.login}`} onClick={e=>navigate('/login')}>{langValuesSetter('login',lang.lang)}</button>
             </div>
         </div>
     )

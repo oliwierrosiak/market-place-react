@@ -30,13 +30,15 @@
 .header>h1
 {
     text-align: center;
-    font-size: 5rem;
+    font-size: 4.5rem;
     z-index: 3;
     color: white;
     box-shadow: 0 0 1rem 1.5rem #0e111636;
     background-color: #0e111636;
     border-radius: 2rem;
     padding: 0 2rem;
+    font-family: "BBH Sans Hegarty", sans-serif;
+    font-weight: 400;
 }
 .header>p
 {

@@ -8,18 +8,14 @@
 html
 {
   font-size: 1vw;
+  font-family: "Zalando Sans", sans-serif;
+  /* font-family: "BBH Sans Hegarty", sans-serif; */
+   /* font-family: "Merriweather Sans", sans-serif; */
+    /* font-family: "DynaPuff", system-ui; */
+     /* font-family: "Space Grotesk", sans-serif; */
 }
 body
 {
   background-color: #0E1116;
 }
-/* html
-{
-  background-color: #0E1116;
-  background-color: #00BFA6;
-  background-color: #2E8BFF;
-  background-color: #E6EAF0;
-  background-color: #FF4D4D;
-  background-color: #4DFF88;
 
-} */

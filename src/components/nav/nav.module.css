@@ -28,6 +28,8 @@
     border-top-right-radius: 1rem;
     cursor: pointer;
     transition: background .3s ease;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 900;
 }
 .li:hover
 {
