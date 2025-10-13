@@ -8,6 +8,7 @@ import CurrencyContext from '../context/currencyContext'
 import LangContext from '../context/langContext'
 
 import PageHeader from '../pageHeader/pageHeader'
+import Nav from '../nav/nav'
 
 function Crypto()
 {
@@ -37,6 +38,7 @@ function Crypto()
     return(
         <>
             <PageHeader page="crypto" />
+            <Nav />
         </>
     )
 }

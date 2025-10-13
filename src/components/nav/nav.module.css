@@ -1,0 +1,44 @@
+.nav
+{
+    width: 100%;
+}
+.ul
+{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8rem;
+}
+.ul>li::selection
+{
+    background: none;
+}
+.ul>li
+{
+    font-size: 1.5rem;
+    width: 100%;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:.3rem;
+    text-align: center;
+    padding: .5rem 0;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    cursor: pointer;
+}
+.ul>li:hover
+{
+    background-color: #303030;
+}
+.navIcon
+{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.currentPage
+{
+    background-color: #404040 !important;
+}

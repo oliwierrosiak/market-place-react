@@ -50,11 +50,7 @@ function TopBar(props)
             <img src={logo} className={styles.logo} />
             <Search />
 
-            
-
-           
-
-            <div className={styles.loginContainer}>
+        <div className={styles.loginContainer}>
 
                 <div className={styles.langAndCurrency}>
                     <div className={styles.item}>
