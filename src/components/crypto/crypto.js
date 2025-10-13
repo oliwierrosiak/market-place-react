@@ -41,6 +41,9 @@ function Crypto()
             <TopBar/>
             <PageHeader page="crypto" />
             <Nav />
+            <div className={styles.test}>
+                
+            </div>
         </>
     )
 }

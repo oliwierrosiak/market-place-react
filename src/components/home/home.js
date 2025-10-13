@@ -21,6 +21,7 @@ function Home()
     const bgRef = useRef()
 
     useEffect(()=>{
+        window.scrollTo(0,0)
         bgRef.current?.classList.add(styles.bgDisplay)
         const localLinks = [...langValuesSetter('nav','en')]
         links.current = localLinks.map(x=>x.toLowerCase())
@@ -32,7 +33,7 @@ function Home()
     return(
         <>
         <TopBar />
-        <header className={styles.header}>
+        <header className={styles.header} id="header">
             <img src={bg} className={styles.background} ref={bgRef}/>
             <h1 className={styles.h1}>{langValuesSetter('homeHeader',lang.lang)}</h1>
             <div className={styles.bottomShadow}></div>

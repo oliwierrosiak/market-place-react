@@ -33,6 +33,7 @@ function PageHeader(props)
     const lang = useContext(LangContext)
 
     useEffect(()=>{
+        window.scrollTo(0,0)
         if(bgRef.current)
         {
             bgRef.current.classList.add(styles.bgDisplay)
@@ -43,7 +44,7 @@ function PageHeader(props)
     },[])
 
     return(
-        <header className={styles.header}>
+        <header className={styles.header} id='header'>
             <img src={state.img} className={styles.bg} ref={bgRef}/>
             <h1>{langValuesSetter(state.header,lang.lang)}</h1>
             <p>{langValuesSetter(state.p,lang.lang)}</p>

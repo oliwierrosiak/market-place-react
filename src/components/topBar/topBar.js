@@ -2,24 +2,27 @@ import Search from '../search/search'
 import styles from './topBar.module.css'
 import LangContext from '../context/langContext'
 import CurrencyContext from '../context/currencyContext'
-import { useContext, useRef } from 'react'
-import logo from '../../assets/img/voxalogo1.png'
+import { useContext, useEffect, useRef } from 'react'
+import logo from '../../assets/img/logo60.png'
 import LangIcon from '../../assets/svg/lang'
 import CurrencyIcon from '../../assets/svg/currency'
 import langValuesSetter from '../helpers/langValuesSetter'
 import TopBarContext from '../context/topBarContext'
 import { useNavigate } from 'react-router-dom'
 
-function TopBar(props)
+function TopBar()
 {
     const currency = useContext(CurrencyContext)
     const lang = useContext(LangContext)
     const topBarContext = useContext(TopBarContext)
 
+    const topBarRef = useRef()
     const currencyToChoose = ['EUR','PLN','USD']
     const langToChoose = ["EN","PL"]
 
     const navigate = useNavigate()
+
+    let topBarBgSet = false
 
     const listContainerClicked = (e) =>
     {
@@ -48,8 +51,31 @@ function TopBar(props)
         }
     }
 
+    const windowScroll = (e) =>{
+        const header = document.querySelector('#header')
+        if(Math.abs(header.getBoundingClientRect().top*2) > header.clientHeight && !topBarBgSet)
+        {
+            topBarRef.current.classList.add(styles.topBarSolid)
+            topBarBgSet = true
+        }
+        else if(Math.abs(header.getBoundingClientRect().top*2) <= header.clientHeight && topBarBgSet)
+        {
+            topBarBgSet = false
+            topBarRef.current.classList.remove(styles.topBarSolid)
+
+        }
+    }
+
+    useEffect(()=>{
+        windowScroll()
+        window.addEventListener('scroll',windowScroll)
+        return()=>{
+            window.removeEventListener('scroll',windowScroll)
+        }
+    },[])
+
     return(
-        <div className={styles.topBar}>
+        <div className={styles.topBar} ref={topBarRef}>
             <img src={logo} className={styles.logo} onClick={e=>navigate('/')}/>
             <Search />
 
