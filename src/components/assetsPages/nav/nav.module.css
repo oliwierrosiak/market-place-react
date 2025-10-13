@@ -1,6 +1,25 @@
 .nav
 {
     width: 100%;
+    position: sticky;
+    top:3.6rem;
+}
+.navSticked
+{
+    background: #0E1116;
+}
+.navSticked>.ul>.li
+{
+    border-radius: 1rem;
+}
+.navSticked>.ul>.li:hover
+{
+    background: #363636;
+}
+.navSticked>.ul>.currentPage
+{
+    color: #00BFA6;
+    background:none !important;
 }
 .ul
 {
@@ -33,7 +52,7 @@
 }
 .li:hover
 {
-    background: #303030;
+    background: #252525;
 }
 .navIcon
 {
@@ -42,5 +61,5 @@
 }
 .currentPage
 {
-    background: #404040 !important;
+    background: #303030 !important;
 }

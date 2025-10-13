@@ -1,6 +1,7 @@
 .article
 {
     width: 100%;
-    height: 200px;
-    background-color: red;
+    height: 100vh;
+    background:#303030;
+    border-radius: 1.5rem;
 }

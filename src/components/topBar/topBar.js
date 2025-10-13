@@ -75,7 +75,7 @@ function TopBar()
     },[])
 
     return(
-        <div className={styles.topBar} ref={topBarRef}>
+        <div className={styles.topBar} ref={topBarRef} id='topBar'>
             <img src={logo} className={styles.logo} onClick={e=>navigate('/')}/>
             <Search />
 
