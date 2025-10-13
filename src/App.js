@@ -1,19 +1,17 @@
 import { useEffect, useState, useRef } from 'react';
 import styles from './app.module.css'
 import LangContext from './components/context/langContext';
-import Nav from './components/nav/nav';
-
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CurrencyContext from './components/context/currencyContext';
 import topBarStyles from './components/topBar/topBar.module.css'
 import getCurrencyState from './components/helpers/getCurrencyState';
 import getLangState from './components/helpers/getLangState';
 import Home from './components/home/home';
-import Crypto from './components/crypto/crypto';
-import Metals from './components/metals/metals';
-import ETF from './components/etf/etf';
-import Stock from './components/stock/stock';
-import Currencies from './components/currencies/currencies';
+import Crypto from './components/assetsPages/crypto/crypto';
+import Metals from './components/assetsPages/metals/metals';
+import ETF from './components/assetsPages/etf/etf';
+import Stock from './components/assetsPages/stock/stock';
+import Currencies from './components/assetsPages/currencies/currencies';
 import TopBarContext from './components/context/topBarContext';
 
 function App() {

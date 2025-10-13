@@ -1,6 +1,6 @@
 import PageHeader from "../pageHeader/pageHeader"
 import Nav from "../nav/nav"
-import TopBar from "../topBar/topBar"
+import TopBar from "../../topBar/topBar"
 
 function Metals()
 {

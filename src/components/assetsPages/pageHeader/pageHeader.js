@@ -1,12 +1,12 @@
 import styles from './pageHeader.module.css'
-import cryptoImg from '../../assets/img/crypto.webp'
+import cryptoImg from '../../../assets/img/crypto.webp'
 import { useContext, useEffect, useRef, useState } from 'react'
-import LangContext from '../context/langContext'
-import langValuesSetter from '../helpers/langValuesSetter'
-import metalsImg from '../../assets/img/metals.webp'
-import etfImg from '../../assets/img/etf.webp'
-import currenciesImg from '../../assets/img/currencies.webp'
-import stocksImg from '../../assets/img/stocks.webp'
+import LangContext from '../../context/langContext'
+import langValuesSetter from '../../helpers/langValuesSetter'
+import metalsImg from '../../../assets/img/metals.webp'
+import etfImg from '../../../assets/img/etf.webp'
+import currenciesImg from '../../../assets/img/currencies.webp'
+import stocksImg from '../../../assets/img/stocks.webp'
 
 function PageHeader(props)
 {

@@ -1,13 +1,13 @@
 import { useContext, useEffect, useRef, useState } from 'react'
 import styles from './nav.module.css'
-import langValuesSetter from '../helpers/langValuesSetter'
-import LangContext from '../context/langContext'
+import langValuesSetter from '../../helpers/langValuesSetter'
+import LangContext from '../../context/langContext'
 import { useHref, useNavigate, useParams } from 'react-router-dom'
-import StockIcon from '../../assets/svg/stock'
-import ETFIcon from '../../assets/svg/etfIcon'
-import CryptoIcon from '../../assets/svg/crypto'
-import GoldIcon from '../../assets/svg/gold'
-import CurrencyNavIcon from '../../assets/svg/currencyNav'
+import StockIcon from '../../../assets/svg/stock'
+import ETFIcon from '../../../assets/svg/etfIcon'
+import CryptoIcon from '../../../assets/svg/crypto'
+import GoldIcon from '../../../assets/svg/gold'
+import CurrencyNavIcon from '../../../assets/svg/currencyNav'
 
 function Nav()
 {

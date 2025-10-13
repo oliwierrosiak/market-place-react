@@ -1,15 +1,16 @@
 import { useContext, useEffect, useState } from 'react'
-import styles from './crypto.module.css'
+import styles from '../pages.module.css'
 import axios from 'axios'
 import { CartesianGrid, LineChart, YAxis, XAxis, Tooltip, Line, ResponsiveContainer, Brush, BarChart } from 'recharts'
-import ApiAddress from '../../ApiAddress'
-import CurrencyContext from '../context/currencyContext'
+import ApiAddress from '../../../ApiAddress'
+import CurrencyContext from '../../context/currencyContext'
 
-import LangContext from '../context/langContext'
+import LangContext from '../../context/langContext'
 
 import PageHeader from '../pageHeader/pageHeader'
 import Nav from '../nav/nav'
-import TopBar from '../topBar/topBar'
+import TopBar from '../../topBar/topBar'
+import PageArticle from '../pageArticle/pageArticle'
 
 function Crypto()
 {
@@ -41,9 +42,9 @@ function Crypto()
             <TopBar/>
             <PageHeader page="crypto" />
             <Nav />
-            <div className={styles.test}>
-                
-            </div>
+            <main className={styles.main}>
+                <PageArticle />
+            </main>
         </>
     )
 }
