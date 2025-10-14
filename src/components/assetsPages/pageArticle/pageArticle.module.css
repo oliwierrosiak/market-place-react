@@ -34,7 +34,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: 3rem 1fr 2fr 3fr 3rem;
-    gap:2rem;
+    gap:1rem;
     padding: 0 3rem;
     cursor: pointer;
     align-items: center;
@@ -50,9 +50,10 @@
 }
 .name
 {
-    display: flex;
-    align-items: center;
     font-size: 2.5rem;
+    overflow: hidden;
+    white-space: nowrap;    
+    text-overflow: ellipsis;
 }
 .chart
 {
@@ -62,8 +63,8 @@
 .priceContainer
 {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 2fr 1fr;
 }
 .price
 {
@@ -72,7 +73,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     text-align: center;
 }
 .priceChange
@@ -82,20 +83,38 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    white-space: nowrap;
 }
 .percentPriceChange
 {
-    grid-column: 2/3;
+    grid-column: 3/4;
+    grid-row: 1/2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+}
+.interval
+{
+    grid-column: 2/4;
     grid-row: 2/3;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.5rem;
+    font-size: .8rem;
 }
 .likeContainer
 {
     width: 3rem;
     height: 3rem;
     background-color: green;
+}
+.gainedColor
+{
+    color:#4DFF88;
+}
+.loseColor
+{
+    color: #FF4D4D;
 }

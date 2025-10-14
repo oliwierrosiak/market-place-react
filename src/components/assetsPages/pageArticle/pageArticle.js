@@ -32,6 +32,51 @@ function PageArticle(props)
         }
     },[props.data])
 
+    const fixedSetter = (val) =>{
+        const str = String(val).split('.')
+        if(str[1])
+        {
+            if(str[1].length < 5)
+            {
+                return str[1].length
+            }
+            else
+            {
+                return 5
+            }
+        }
+        else
+        {
+            return 0
+        }
+    }
+
+    const setPriceFormat = (price) =>
+    {
+        const array = price.split('.')[0].split('').reverse()
+        const returnPrice = []
+        for(let i = 0;i<array.length;i++)
+        {
+            if(i !== 0 && i % 3 ===0)
+            {
+                returnPrice.push(' ')
+            }
+            returnPrice.push(array[i])
+        }
+
+        const priceWithSpaces = returnPrice.reverse()
+        if(price.split('.')[1])
+        {
+            lang.lang === "PL"?priceWithSpaces.push(','):priceWithSpaces.push('.')
+            priceWithSpaces.push(price.split('.')[1])
+            return priceWithSpaces.join('')
+        }   
+        else
+        {
+            return priceWithSpaces.join('')
+        } 
+    }
+
     return(
         <article className={styles.article}>
             {props.error ? <div className={styles.error}>
@@ -44,13 +89,16 @@ function PageArticle(props)
                     <div className={styles.chart}></div>
                     <div className={styles.priceContainer}>
                         <div className={styles.price}>
-                            {x.currentPrice} {currency.currency}
+                            {setPriceFormat(x.currentPrice.toFixed(fixedSetter(x.currentPrice)))} {currency.currency}
                         </div>
-                        <div className={styles.priceChange}>
+                        <div className={`${styles.priceChange} ${x?.priceChange.toFixed(3)>0?styles.gainedColor:''} ${x?.priceChange.toFixed(3)<0?styles.loseColor:''}`}>
                             {x.priceChange.toFixed(3)} {currency.currency}
                         </div>
-                        <div className={styles.percentPriceChange}>
+                        <div className={`${styles.percentPriceChange} ${x?.percentPriceChange.toFixed(3)>0?styles.gainedColor:''} ${x?.percentPriceChange.toFixed(3)<0?styles.loseColor:''}`}>
                             {x.percentPriceChange.toFixed(3)}%
+                        </div>
+                        <div className={styles.interval}>
+                            Ostatnie 24H
                         </div>
                     </div>
                     <div className={styles.likeContainer}>
