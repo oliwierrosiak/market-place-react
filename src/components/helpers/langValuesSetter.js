@@ -58,6 +58,10 @@ const texts = {
     currenciesDescription:{
         pl:"Waluty to oficjalne środki płatnicze poszczególnych krajów, takie jak dolar amerykański, euro czy złoty. Ich wartość zmienia się w zależności od sytuacji gospodarczej i politycznej, a handel nimi odbywa się na rynku Forex.",
         en:'Currencies are the official means of payment of individual countries, such as the US dollar, euro, or Polish zloty. Their value fluctuates based on economic and political conditions, and they are traded on the foreign exchange (Forex) market.'
+    },
+    downloadingError:{
+        pl:"Wystąpił bład pobierania danych z serwera. Spróbuj ponownie później.",
+        en:'There was an error retrieving data from the server. Please try again later.'
     }
 }
 

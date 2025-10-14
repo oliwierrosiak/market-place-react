@@ -1,7 +1,101 @@
 .article
 {
     width: 100%;
-    height: 100vh;
     background:#303030;
     border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:5rem;
+    padding: 3rem 0;
+}
+.error
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:1rem;
+    width: 30%;
+}
+.errorIcon
+{
+    width: 5rem;
+    height: 5rem;
+}
+.error>h2
+{
+    text-align: center;
+    font-size: 2rem;
+}
+.item
+{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 3rem 1fr 2fr 3fr 3rem;
+    gap:2rem;
+    padding: 0 3rem;
+    cursor: pointer;
+    align-items: center;
+}
+.item:hover
+{
+    background-color: grey;
+}
+.img
+{
+    width: 3rem;
+    height: 3rem;
+}
+.name
+{
+    display: flex;
+    align-items: center;
+    font-size: 2.5rem;
+}
+.chart
+{
+    background-color: yellow;
+    height: 3rem;
+}
+.priceContainer
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+.price
+{
+    grid-column: 1/2;
+    grid-row: 1/3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    text-align: center;
+}
+.priceChange
+{
+    grid-column: 2/3;
+    grid-row: 1/2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+.percentPriceChange
+{
+    grid-column: 2/3;
+    grid-row: 2/3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+.likeContainer
+{
+    width: 3rem;
+    height: 3rem;
+    background-color: green;
 }
