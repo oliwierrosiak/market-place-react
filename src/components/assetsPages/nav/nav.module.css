@@ -3,6 +3,7 @@
     width: 100%;
     position: sticky;
     top:3.6rem;
+    z-index: 3;
 }
 .navSticked
 {

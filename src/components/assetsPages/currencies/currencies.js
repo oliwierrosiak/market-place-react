@@ -11,9 +11,9 @@ function Currencies()
             <TopBar />
             <PageHeader page="currencies"/>
             <Nav />
-            <main className={styles.main}>
+            {/* <main className={styles.main}>
                 <PageArticle />
-            </main>
+            </main> */}
         </>
     )
 }

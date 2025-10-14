@@ -11,9 +11,9 @@ function ETF()
             <TopBar />
             <PageHeader page='etf'/>
             <Nav />
-            <main className={styles.main}>
+            {/* <main className={styles.main}>
                 <PageArticle data={[]}/>
-            </main>
+            </main> */}
         </>
     )
 }

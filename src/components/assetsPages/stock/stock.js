@@ -11,9 +11,9 @@ function Stock()
             <TopBar />
             <PageHeader page="stock"/>
             <Nav />
-            <main className={styles.main}>
+            {/* <main className={styles.main}>
                 <PageArticle />
-            </main>
+            </main> */}
         </>
     )
 }

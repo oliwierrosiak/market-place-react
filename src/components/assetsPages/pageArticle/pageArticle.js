@@ -7,6 +7,7 @@ import CurrencyContext from '../../context/currencyContext'
 import starIcon from '../../../assets/img/star10.png'
 import starIconHovered from '../../../assets/img/star20.png'
 import PageChanger from '../pageChanger/pageChange'
+import PageLoading from '../pageLoading/pageLoading'
 
 function PageArticle(props)
 {
@@ -15,7 +16,7 @@ function PageArticle(props)
 
     const articleRef = useRef()
 
-    const [page,setPage] = useState(1)
+    const [page,setPage] = useState('1')
     const [data,setData] = useState([])
     
     const dataSetter = () =>{
@@ -38,8 +39,11 @@ function PageArticle(props)
     },[props.data])
 
     useEffect(()=>{
-        dataSetter()
-        if(articleRef.current)
+        if(props.data)
+        {
+            dataSetter()
+        }
+        if(articleRef.current && page !== "1")
         {
             window.scrollTo(0,articleRef.current.offsetTop-window.innerHeight*0.15)
 
@@ -93,11 +97,16 @@ function PageArticle(props)
 
     return(
         <article className={styles.article} ref={articleRef}>
-            {props.error ? <div className={styles.error}>
+            {props.loading?<>
+                {props.error?
+                <div className={styles.error}>
                 <ErrorIcon class={styles.errorIcon} />
                 <h2>{langValuesSetter('downloadingError',lang.lang)}</h2>    
-            </div>:
-                <>
+                </div>:null}
+                <PageLoading />
+            </>
+            :
+            <>
                 {data.map(x=><div className={styles.item}>
                     <img src={x.image} className={styles.img}/>
                     <div className={styles.name}>{x.name}</div>
@@ -122,9 +131,9 @@ function PageArticle(props)
                 </div>)
                 }
                 
-                <PageChanger dataLength={props.data.length} currentPage={page} setPage={setPage}/>
+                <PageChanger dataLength={props.data.length} currentPage={Number(page)} setPage={setPage}/>
 
-                </>
+            </>
             }
         </article>
     )

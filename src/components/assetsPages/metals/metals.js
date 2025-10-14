@@ -11,9 +11,9 @@ function Metals()
             <TopBar />
             <PageHeader page="metals" />
             <Nav />
-            <main className={styles.main}>
+            {/* <main className={styles.main}>
                 <PageArticle />
-            </main>
+            </main> */}
         </>
 
     )
