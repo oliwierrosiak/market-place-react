@@ -7,8 +7,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap:5rem;
     padding: 3rem 0;
+
 }
 .error
 {
@@ -35,13 +35,14 @@
     display: grid;
     grid-template-columns: 3rem 1fr 2fr 3fr 3rem;
     gap:1rem;
-    padding: 0 3rem;
     cursor: pointer;
     align-items: center;
+    padding: 2.5rem 3rem;
+    transition: background .3s ease;
 }
 .item:hover
 {
-    background-color: grey;
+    background: rgb(66, 66, 66);
 }
 .img
 {
@@ -75,6 +76,7 @@
     align-items: center;
     font-size: 2.2rem;
     text-align: center;
+    font-weight: 900;
 }
 .priceChange
 {
@@ -85,6 +87,8 @@
     align-items: center;
     font-size: 1.3rem;
     white-space: nowrap;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
 }
 .percentPriceChange
 {
@@ -94,6 +98,8 @@
     justify-content: center;
     align-items: center;
     font-size: 1.3rem;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
 }
 .interval
 {
@@ -103,12 +109,21 @@
     justify-content: center;
     align-items: center;
     font-size: .8rem;
+    color:rgb(156, 156, 156);
+    font-weight: 700;
 }
 .likeContainer
 {
     width: 3rem;
     height: 3rem;
-    background-color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.likeContainer>img
+{
+    width: 100%;
+    height: 100%;
 }
 .gainedColor
 {

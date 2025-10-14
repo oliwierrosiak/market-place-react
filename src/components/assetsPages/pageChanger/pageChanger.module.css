@@ -1,0 +1,69 @@
+.container
+{
+    margin-top: 2rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:1rem;
+}
+.item::selection
+{
+    background: none;
+}
+.item
+{
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background .3s ease;
+    font-family: "BBH Sans Hegarty", sans-serif;
+
+}
+.item:hover
+{
+    background: #505050;
+}
+.currentPage
+{
+    background-color: #808080 !important;
+    cursor: default;
+}
+.noHover
+{
+    background:none !important;
+    letter-spacing: .2rem;
+    cursor: default;
+}
+.arrowContainer
+{
+    width: 2rem;
+    height: 2rem;
+    margin: 0 1rem;
+}
+.arrow
+{
+    width: 100%;
+    height: 100%;
+    fill: #606060;
+    cursor: pointer;
+    transition: fill .3s ease;
+}
+.arrow:hover{
+    fill: grey;
+    fill: #808080;
+}
+.leftArrow
+{
+    rotate: 180deg;
+}
+.arrowDisabled>svg
+{
+    fill: #404040 !important;
+    cursor: default;
+}

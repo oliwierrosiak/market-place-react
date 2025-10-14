@@ -12,7 +12,7 @@ function ETF()
             <PageHeader page='etf'/>
             <Nav />
             <main className={styles.main}>
-                <PageArticle />
+                <PageArticle data={[]}/>
             </main>
         </>
     )

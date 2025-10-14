@@ -62,6 +62,10 @@ const texts = {
     downloadingError:{
         pl:"Wystąpił bład pobierania danych z serwera. Spróbuj ponownie później.",
         en:'There was an error retrieving data from the server. Please try again later.'
+    },
+    last24hData:{
+        pl:"Ostatnie 24h",
+        en:"last 24h"
     }
 }
 

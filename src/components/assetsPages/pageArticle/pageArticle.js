@@ -1,14 +1,19 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import styles from './pageArticle.module.css'
 import LangContext from '../../context/langContext'
 import langValuesSetter from '../../helpers/langValuesSetter'
 import ErrorIcon from '../../../assets/svg/error'
 import CurrencyContext from '../../context/currencyContext'
+import starIcon from '../../../assets/img/star10.png'
+import starIconHovered from '../../../assets/img/star20.png'
+import PageChanger from '../pageChanger/pageChange'
 
 function PageArticle(props)
 {
     const lang = useContext(LangContext)
     const currency = useContext(CurrencyContext)
+
+    const articleRef = useRef()
 
     const [page,setPage] = useState(1)
     const [data,setData] = useState([])
@@ -31,6 +36,15 @@ function PageArticle(props)
             dataSetter()
         }
     },[props.data])
+
+    useEffect(()=>{
+        dataSetter()
+        if(articleRef.current)
+        {
+            window.scrollTo(0,articleRef.current.offsetTop-window.innerHeight*0.15)
+
+        }
+    },[page])
 
     const fixedSetter = (val) =>{
         const str = String(val).split('.')
@@ -78,12 +92,13 @@ function PageArticle(props)
     }
 
     return(
-        <article className={styles.article}>
+        <article className={styles.article} ref={articleRef}>
             {props.error ? <div className={styles.error}>
                 <ErrorIcon class={styles.errorIcon} />
                 <h2>{langValuesSetter('downloadingError',lang.lang)}</h2>    
             </div>:
-                data.map(x=><div className={styles.item}>
+                <>
+                {data.map(x=><div className={styles.item}>
                     <img src={x.image} className={styles.img}/>
                     <div className={styles.name}>{x.name}</div>
                     <div className={styles.chart}></div>
@@ -98,13 +113,18 @@ function PageArticle(props)
                             {x.percentPriceChange.toFixed(3)}%
                         </div>
                         <div className={styles.interval}>
-                            Ostatnie 24H
+                            {langValuesSetter('last24hData',lang.lang)}
                         </div>
                     </div>
                     <div className={styles.likeContainer}>
-                        
+                        <img src={starIcon} onMouseOver={e=>e.target.src=starIconHovered} onMouseOut={e=>e.target.src=starIcon}/>
                     </div>
                 </div>)
+                }
+                
+                <PageChanger dataLength={props.data.length} currentPage={page} setPage={setPage}/>
+
+                </>
             }
         </article>
     )

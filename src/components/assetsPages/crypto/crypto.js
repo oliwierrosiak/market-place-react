@@ -53,7 +53,6 @@ function Crypto()
         try
         {
             const response = await axios.get(`${ApiAddress}/getCrypto?currency=${currency.currency}`)
-            console.log(response.data)
             setData(response.data)
         }
         catch(ex)
