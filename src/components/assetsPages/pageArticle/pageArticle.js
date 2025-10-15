@@ -9,6 +9,7 @@ import starIconHovered from '../../../assets/img/star20.png'
 import PageChanger from '../pageChanger/pageChange'
 import PageLoading from '../pageLoading/pageLoading'
 import { LineChart, ResponsiveContainer, YAxis, XAxis, Line, Tooltip } from 'recharts'
+import { useHref, useNavigate } from 'react-router-dom'
 
 function PageArticle(props)
 {
@@ -16,6 +17,9 @@ function PageArticle(props)
     const currency = useContext(CurrencyContext)
 
     const articleRef = useRef()
+
+    const href = useHref()
+    const navigate = useNavigate()
 
     const [page,setPage] = useState('1')
     const [data,setData] = useState([])
@@ -115,14 +119,14 @@ function PageArticle(props)
             </>
             :
             <>
-                {data.map(x=><div className={styles.item}>
+                {data.map(x=><div className={styles.item} onClick={e=>navigate(`${href}/${x.id}`)}>
                     <img src={x.image} className={styles.img}/>
                     <div className={styles.name}>{x.name}</div>
                     <div className={styles.chart}>
-                        <ResponsiveContainer key={page}>
+                        <ResponsiveContainer key={page} >
                             <LineChart data={x.sparkline}>
                                 <YAxis domain={['dataMin - 0.00001', 'dataMax + 0.00001']}  hide/>
-                                 <Line type="monotone" dataKey="price" stroke={x.percentPriceChange.toFixed(3) > 0 ? "#4DFF88":"#FF4D4D"} strokeWidth={5} dot={false} isAnimationActive={true}/>
+                                 <Line type="monotone" dataKey="price" stroke={x.percentPriceChange.toFixed(3) > 0 ? "#4DFF88":"#FF4D4D"} strokeWidth={'.3rem'} dot={false} isAnimationActive={true} activeDot={false}/>
                             </LineChart>
                         </ResponsiveContainer>
                     </div>

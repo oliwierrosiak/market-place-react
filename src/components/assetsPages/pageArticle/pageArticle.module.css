@@ -10,6 +10,11 @@
     padding: 3rem 0;
     position: relative;
 }
+.article svg:focus,
+.article svg *:focus {
+  outline: none !important;
+  cursor: pointer !important;
+}
 .error
 {
     position: absolute;
