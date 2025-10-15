@@ -68,8 +68,7 @@
 }
 .chart
 {
-    background-color: yellow;
-    height: 3rem;
+    height: 100%;
 }
 .priceContainer
 {

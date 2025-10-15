@@ -5,12 +5,17 @@ function PageLoading()
 {
     const loadingArray = [{},{},{},{},{},{},{},{},{},{}]
 
+    const interval = []
+
     const animationFunc = (x) =>{
         x.style.transition = `all 1.5s linear`
         x.classList.add(styles.animationDone)
         setTimeout(() => {
-            x.style.transition = `none`
-            x.classList.remove(styles.animationDone)
+            if(x)
+            {
+                x.style.transition = `none`
+                x.classList.remove(styles.animationDone)
+            }
         }, 1500);
     }
 
@@ -18,10 +23,14 @@ function PageLoading()
         const el = [...document.querySelectorAll('.animationEl')]
         el.forEach(x=>{
             animationFunc(x)
-            setInterval(() => {
+            interval.push(setInterval(() => {
                 animationFunc(x)
-            }, 1600);
+            }, 1600))
         })
+        return()=>{
+            interval.forEach(x=>clearInterval(x))
+            // console.log(interval)
+        }
     },[])
 
     return(

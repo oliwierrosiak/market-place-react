@@ -8,6 +8,7 @@ import starIcon from '../../../assets/img/star10.png'
 import starIconHovered from '../../../assets/img/star20.png'
 import PageChanger from '../pageChanger/pageChange'
 import PageLoading from '../pageLoading/pageLoading'
+import { LineChart, ResponsiveContainer, YAxis, XAxis, Line, Tooltip } from 'recharts'
 
 function PageArticle(props)
 {
@@ -28,6 +29,13 @@ function PageArticle(props)
                 localData.push(props.data[i])
             }
         }
+        localData.forEach(x=>{
+            if(!x.sparkline[0].price)
+            {
+                x.sparkline = x.sparkline.map((x,idx)=>{return{time:idx,price:x}})
+
+            }
+        })
         setData(localData)
     }
 
@@ -110,7 +118,14 @@ function PageArticle(props)
                 {data.map(x=><div className={styles.item}>
                     <img src={x.image} className={styles.img}/>
                     <div className={styles.name}>{x.name}</div>
-                    <div className={styles.chart}></div>
+                    <div className={styles.chart}>
+                        <ResponsiveContainer key={page}>
+                            <LineChart data={x.sparkline}>
+                                <YAxis domain={['dataMin - 0.00001', 'dataMax + 0.00001']}  hide/>
+                                 <Line type="monotone" dataKey="price" stroke={x.percentPriceChange.toFixed(3) > 0 ? "#4DFF88":"#FF4D4D"} strokeWidth={5} dot={false} isAnimationActive={true}/>
+                            </LineChart>
+                        </ResponsiveContainer>
+                    </div>
                     <div className={styles.priceContainer}>
                         <div className={styles.price}>
                             {setPriceFormat(x.currentPrice.toFixed(fixedSetter(x.currentPrice)))} {currency.currency}

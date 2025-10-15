@@ -256,6 +256,7 @@ function Crypto()
     },[])
 
     useEffect(()=>{
+        setLoading(true)
         getCrypto()
     },[currency.currency])
 
