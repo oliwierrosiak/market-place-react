@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import styles from './pageLoading.module.css'
 
-function PageLoading()
+function PageLoading(props)
 {
     const loadingArray = [{},{},{},{},{},{},{},{},{},{}]
 
@@ -36,10 +36,11 @@ function PageLoading()
     return(
         <>
             {loadingArray.map(x=><div className={styles.item}>
-                <div className={styles.element}>
+                {props.withoutImg?null:<div className={styles.element}>
                     <div className={`${styles.animationBox} animationEl`}></div>
-                </div>
-                <div className={styles.element}>
+                </div>}
+                
+                <div className={`${styles.element} ${props.withoutImg?styles.longContainer:''}`}>
                     <div className={`${styles.animationBox} animationEl`}></div>
                 </div>
                 <div className={styles.element}>

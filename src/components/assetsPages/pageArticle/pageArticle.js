@@ -115,18 +115,19 @@ function PageArticle(props)
                 <ErrorIcon class={styles.errorIcon} />
                 <h2>{langValuesSetter('downloadingError',lang.lang)}</h2>    
                 </div>:null}
-                <PageLoading />
+                <PageLoading withoutImg={props.withoutImg}/>
             </>
             :
             <>
                 {data.map(x=><div className={styles.item} onClick={e=>navigate(`${href}/${x.id}`)}>
-                    <img src={x.image} className={styles.img}/>
-                    <div className={styles.name}>{x.name}</div>
+                    {props.withoutImg?null:<img src={x.image} className={styles.img}/>}
+                    
+                    <div className={`${styles.name} ${props.withoutImg?styles.longName:''}`}>{x.name}</div>
                     <div className={styles.chart}>
                         <ResponsiveContainer key={page} >
                             <LineChart data={x.sparkline}>
                                 <YAxis domain={['dataMin - 0.00001', 'dataMax + 0.00001']}  hide/>
-                                 <Line type="monotone" dataKey="price" stroke={x.percentPriceChange.toFixed(3) > 0 ? "#4DFF88":"#FF4D4D"} strokeWidth={'.3rem'} dot={false} isAnimationActive={true} activeDot={false}/>
+                                 <Line type="monotone" dataKey="price" stroke={x?.percentPriceChange.toFixed(3) > 0 ? "#4DFF88":"#FF4D4D"} strokeWidth={'.3rem'} dot={false} isAnimationActive={true} activeDot={false}/>
                             </LineChart>
                         </ResponsiveContainer>
                     </div>
