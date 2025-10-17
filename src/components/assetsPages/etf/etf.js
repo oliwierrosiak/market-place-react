@@ -19,7 +19,7 @@ function ETF()
     const getETF = async() =>{
         try
         {
-            const response = await axios.get(`${ApiAddress}/getEtf`)
+            const response = await axios.get(`${ApiAddress}/getEtf?currency=${currency.currency}`)
             setData(response.data)
             setLoading(false)
         }
@@ -32,6 +32,11 @@ function ETF()
     useEffect(()=>{
         getETF()
     },[])
+
+    useEffect(()=>{
+        setLoading(true)
+        getETF()
+    },[currency.currency])
 
     return(
         <>
