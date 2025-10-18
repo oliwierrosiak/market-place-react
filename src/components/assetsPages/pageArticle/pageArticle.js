@@ -10,6 +10,7 @@ import PageChanger from '../pageChanger/pageChange'
 import PageLoading from '../pageLoading/pageLoading'
 import { LineChart, ResponsiveContainer, YAxis, XAxis, Line, Tooltip } from 'recharts'
 import { useHref, useNavigate } from 'react-router-dom'
+import defaultFlag from '../../../assets/img/defaultFlag.png'
 
 function PageArticle(props)
 {
@@ -120,9 +121,9 @@ function PageArticle(props)
             :
             <>
                 {data.map(x=><div className={styles.item} onClick={e=>navigate(`${href}/${x.id}`)}>
-                    {props.withoutImg?null:<img src={x.image} className={styles.img}/>}
+                    {props.withoutImg?null:<img src={x.image||defaultFlag} className={styles.img}/>}
                     
-                    <div className={`${styles.name} ${props.withoutImg?styles.longName:''}`}>{x.name}</div>
+                    <div className={`${styles.name} ${props.withoutImg?styles.longName:''} ${props.currency?styles.currencyName:''}`}>{x.name}</div>
                     <div className={styles.chart}>
                         <ResponsiveContainer key={page} >
                             <LineChart data={x.sparkline}>
