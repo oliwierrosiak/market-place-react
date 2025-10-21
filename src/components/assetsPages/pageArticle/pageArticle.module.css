@@ -82,6 +82,13 @@
 {
     font-weight: 700;
 }
+.stocksName
+{
+    font-size: 1.4rem;
+        text-overflow: clip;
+    white-space: wrap; 
+    font-weight: 700;
+}
 .chart
 {
     height: 100%;

@@ -99,7 +99,16 @@ function PageArticle(props)
         if(price.split('.')[1])
         {
             lang.lang === "PL"?priceWithSpaces.push(','):priceWithSpaces.push('.')
-            priceWithSpaces.push(price.split('.')[1])
+            if(price.split('.')[1].length==1)
+            {
+                priceWithSpaces.push(price.split('.')[1])
+                priceWithSpaces.push(0)
+            }
+            else
+            {
+                priceWithSpaces.push(price.split('.')[1])
+
+            }
             return priceWithSpaces.join('')
         }   
         else
@@ -123,12 +132,12 @@ function PageArticle(props)
                 {data.map(x=><div className={styles.item} onClick={e=>navigate(`${href}/${x.id}`)}>
                     {props.withoutImg?null:<img src={x.image||defaultFlag} className={styles.img}/>}
                     
-                    <div className={`${styles.name} ${props.withoutImg?styles.longName:''} ${props.currency?styles.currencyName:''}`}>{x.name}</div>
+                    <div className={`${styles.name} ${props.withoutImg?styles.longName:''} ${props.currency?styles.currencyName:''} ${props.stocksName?styles.stocksName:''}`}>{x.name}</div>
                     <div className={styles.chart}>
                         <ResponsiveContainer key={page} >
                             <LineChart data={x.sparkline}>
                                 <YAxis domain={['dataMin - 0.00001', 'dataMax + 0.00001']}  hide/>
-                                 <Line type="monotone" dataKey="price" stroke={x?.percentPriceChange.toFixed(3) > 0 ? "#4DFF88":"#FF4D4D"} strokeWidth={'.3rem'} dot={false} isAnimationActive={true} activeDot={false}/>
+                                 <Line type="monotone" dataKey="price" stroke={x?.percentPriceChange.toFixed(3) > 0 ? "#4DFF88":x?.percentPriceChange.toFixed(3) < 0?"#FF4D4D":'#E6EAF0'} strokeWidth={'.3rem'} dot={false} isAnimationActive={true} activeDot={false}/>
                             </LineChart>
                         </ResponsiveContainer>
                     </div>
@@ -137,7 +146,7 @@ function PageArticle(props)
                             {setPriceFormat(x.currentPrice.toFixed(fixedSetter(x.currentPrice)))} {currency.currency}
                         </div>
                         <div className={`${styles.priceChange} ${x?.priceChange.toFixed(3)>0?styles.gainedColor:''} ${x?.priceChange.toFixed(3)<0?styles.loseColor:''}`}>
-                            {x.priceChange.toFixed(3)} {currency.currency}
+                            {setPriceFormat(x.priceChange.toFixed(3))} {currency.currency}
                         </div>
                         <div className={`${styles.percentPriceChange} ${x?.percentPriceChange.toFixed(3)>0?styles.gainedColor:''} ${x?.percentPriceChange.toFixed(3)<0?styles.loseColor:''}`}>
                             {x.percentPriceChange.toFixed(3)}%
