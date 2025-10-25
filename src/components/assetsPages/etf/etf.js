@@ -10,17 +10,30 @@ import CurrencyContext from "../../context/currencyContext";
 
 function ETF()
 {
-    const [data,setData] = useState([])
-    const [error,setError] = useState(false)
-    const [loading,setLoading] = useState(true)
 
+    const dataSetter = ()=>{
+        const data = JSON.parse(sessionStorage.getItem('etf'))
+        return data?data:[]
+    }
+
+    const loadingSetter = () =>
+    {
+        const data = JSON.parse(sessionStorage.getItem('etf'))
+        return data?false:true
+    }
+
+    const [data,setData] = useState(dataSetter())
+    const [error,setError] = useState(false)
+    const [loading,setLoading] = useState(loadingSetter())
     const currency = useContext(CurrencyContext)
+    const[loadingSaver,setLoadingSaver] = useState(true)
 
     const getETF = async() =>{
         try
         {
             const response = await axios.get(`${ApiAddress}/getEtf?currency=${currency.currency}`)
             setData(response.data)
+            sessionStorage.setItem('etf',JSON.stringify(response.data))
             setLoading(false)
         }
         catch(ex)
@@ -34,8 +47,15 @@ function ETF()
     },[])
 
     useEffect(()=>{
-        setLoading(true)
-        getETF()
+        if(loadingSaver)
+        {
+            setLoadingSaver(false)
+        }
+        else
+        {
+            getETF()
+            setLoading(true)
+        }
     },[currency.currency])
 
     return(

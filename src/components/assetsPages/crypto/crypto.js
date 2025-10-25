@@ -224,23 +224,30 @@ const dataSetterTest = () =>{
 
 function Crypto()
 {
-    const [data,setData] = useState([])
-    const [error,setError] = useState(false)
-    const [loading,setLoading] = useState(true)
+    const dataSetter = ()=>{
+        const data = JSON.parse(sessionStorage.getItem('crypto'))
+        return data?data:[]
+    }
 
+    const loadingSetter = () =>
+    {
+        const data = JSON.parse(sessionStorage.getItem('crypto'))
+        return data?false:true
+    }
+
+    const [data,setData] = useState(dataSetter())
+    const [error,setError] = useState(false)
+    const [loading,setLoading] = useState(loadingSetter())
+    const[loadingSaver,setLoadingSaver] = useState(true)
+    
     const currency = useContext(CurrencyContext)
-    const lang = useContext(LangContext)
 
     const getCrypto = async() =>{
-        // setTimeout(() => {
-        //     setData(dataSetterTest())
-        //     setLoading(false)
-            
-        // }, 2000);
         try
         {
             const response = await axios.get(`${ApiAddress}/getCrypto?currency=${currency.currency}`)
             setData(response.data)
+            sessionStorage.setItem('crypto',JSON.stringify(response.data))
             setLoading(false)
         }
         catch(ex)
@@ -249,15 +256,20 @@ function Crypto()
         }
     }
 
-   
-
     useEffect(()=>{
         getCrypto()
     },[])
 
     useEffect(()=>{
-        setLoading(true)
-        getCrypto()
+        if(loadingSaver)
+        {
+            setLoadingSaver(false)
+        }
+        else
+        {
+            getCrypto()
+            setLoading(true)
+        }
     },[currency.currency])
 
     return(

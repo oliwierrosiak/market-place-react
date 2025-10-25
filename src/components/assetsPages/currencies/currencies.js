@@ -11,9 +11,21 @@ import CurrencyContext from "../../context/currencyContext";
 function Currencies()
 {
 
-    const [data,setData] = useState([])
+    const dataSetter = ()=>{
+        const data = JSON.parse(sessionStorage.getItem('currencies'))
+        return data?data:[]
+    }
+
+    const loadingSetter = () =>
+    {
+        const data = JSON.parse(sessionStorage.getItem('currencies'))
+        return data?false:true
+    }
+
+    const [data,setData] = useState(dataSetter())
     const [error,setError] = useState(false)
-    const [loading,setLoading] = useState(true)
+    const [loading,setLoading] = useState(loadingSetter())
+    const[loadingSaver,setLoadingSaver] = useState(true)
     
     const currency = useContext(CurrencyContext)
 
@@ -23,6 +35,7 @@ function Currencies()
         {
             const response = await axios.get(`${ApiAddress}/getCurrencies?currency=${currency.currency}`)
             setData(response.data)
+            sessionStorage.setItem('currencies',JSON.stringify(response.data))
             setLoading(false)
         }
         catch(ex)
@@ -36,8 +49,15 @@ function Currencies()
     },[])
 
     useEffect(()=>{
-        setLoading(true)
-        getData()
+        if(loadingSaver)
+        {
+            setLoadingSaver(false)
+        }
+        else
+        {
+            getData()
+            setLoading(true)
+        }
     },[currency.currency])
 
     return(

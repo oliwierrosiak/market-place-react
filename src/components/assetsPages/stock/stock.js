@@ -11,10 +11,22 @@ import CurrencyContext from "../../context/currencyContext";
 function Stock()
 {
 
-    const [data,setData] = useState([])
-    const [error,setError] = useState(false)
-    const [loading,setLoading] = useState(true)
+    const dataSetter = ()=>{
+        const data = JSON.parse(sessionStorage.getItem('stocks'))
+        return data?data:[]
+    }
 
+    const loadingSetter = () =>
+    {
+        const data = JSON.parse(sessionStorage.getItem('stocks'))
+        return data?false:true
+    }
+
+    const [data,setData] = useState(dataSetter())
+    const [error,setError] = useState(false)
+    const [loading,setLoading] = useState(loadingSetter())
+    const[loadingSaver,setLoadingSaver] = useState(true)
+    
     const currency = useContext(CurrencyContext)
 
     const getData = async()=>{
@@ -22,6 +34,7 @@ function Stock()
         {
             const response = await axios.get(`${ApiAddress}/getStocks?currency=${currency.currency}`)
             setData(response.data)
+            sessionStorage.setItem('stocks',JSON.stringify(response.data))
             setLoading(false)
         }
         catch(ex)
@@ -34,9 +47,16 @@ function Stock()
         getData()
     },[])
 
-    useEffect(()=>{
-        setLoading(true)
-        getData()
+   useEffect(()=>{
+        if(loadingSaver)
+        {
+            setLoadingSaver(false)
+        }
+        else
+        {
+            getData()
+            setLoading(true)
+        }
     },[currency.currency])
 
     return(
