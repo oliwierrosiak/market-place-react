@@ -13,6 +13,8 @@ import ETF from './components/assetsPages/etf/etf';
 import Stock from './components/assetsPages/stock/stock';
 import Currencies from './components/assetsPages/currencies/currencies';
 import TopBarContext from './components/context/topBarContext';
+import axios from 'axios';
+import ApiAddress from './ApiAddress';
 
 function App() {
 
@@ -45,6 +47,52 @@ function App() {
       document.querySelector('html').lang = lang.toLowerCase()
     }
   },[lang])
+
+  const getStocks = async() =>{
+    try
+    {
+      const response = await axios.get(`${ApiAddress}/getStocks?currency=${currency}`)
+      sessionStorage.setItem('stocks',JSON.stringify(response.data))
+    }
+    catch(ex){}
+  }
+
+  const getEtf = async() =>{
+    try
+    {
+      const response = await axios.get(`${ApiAddress}/getEtf?currency=${currency}`)
+      sessionStorage.setItem('etf',JSON.stringify(response.data))
+
+    }
+    catch(ex){}
+  }
+
+  const getCrypto = async() =>
+  {
+    try
+    {
+      const response = await axios.get(`${ApiAddress}/getCrypto?currency=${currency}`)
+      sessionStorage.setItem('crypto',JSON.stringify(response.data))
+    }
+    catch(ex){}
+  }
+
+  const getCurrencies = async() =>
+  {
+    try
+    {
+      const response = await axios.get(`${ApiAddress}/getCurrencies?currency=${currency}`)
+      sessionStorage.setItem('currencies',JSON.stringify(response.data))
+    }
+    catch(ex){}
+  }
+
+  useEffect(()=>{
+    getStocks()
+    getEtf()
+    getCrypto()
+    getCurrencies()
+  },[currency])
 
   return (
   <>
